@@ -10,6 +10,7 @@ class Posts extends Controller{
 
     public function get_all_posts($id){
         if($_SERVER["REQUEST_METHOD"] === "GET"){
+            include APPROOT . "/libraries/getheaders.php";
             $posts = $this->model->get_all($id);
             echo json_encode($posts);
         }
@@ -17,6 +18,7 @@ class Posts extends Controller{
 
     public function details($id = null){
         if($_SERVER["REQUEST_METHOD"] === "GET"){
+            include APPROOT . "/libraries/getheaders.php";
             $post = $this->model->get_single($id);
             echo json_encode($post);
         }
