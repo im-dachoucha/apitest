@@ -7,11 +7,11 @@ class Core{
     public function __construct()
     {
         $url = $this->get_url();
-        if(isset($url[0]) && file_exists(APPROOT . "/controllers/" . ucfirst(strtolower($url[0])) . ".php")){
+        if(isset($url[0]) && file_exists(APPROOT . "/controllers/" . ucfirst(strtolower($url[0])) . "Controller.php")){
             $this->controller = ucfirst(strtolower($url[0]));
             unset($url[0]);
         }
-        require_once APPROOT . "/controllers/" . $this->controller . ".php";
+        require_once APPROOT . "/controllers/" . $this->controller . "Controller.php";
         $this->controller = new $this->controller;
 
         if(isset($url[1])){
