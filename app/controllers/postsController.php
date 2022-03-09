@@ -9,7 +9,9 @@ class Posts extends Controller{
     }
 
     public function get_all_posts(){
-        $posts = $this->model->get_all();
-        
+        if($_SERVER["REQUEST_METHOD"] === "GET"){
+            $posts = $this->model->get_all();
+            echo json_encode($posts);
+        }
     }
 }

@@ -37,7 +37,6 @@ class Post extends Model{
             );
             array_push($posts["data"], $post_item);
         }
-        echo "<pre>";
-        var_dump(($posts));
+        return $posts;
     }
 }
