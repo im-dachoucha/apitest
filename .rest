@@ -1,2 +1,8 @@
+get localhost/apitest/posts/
+
 ###
-GET localhost/apitest/posts
+get localhost/apitest/posts/2
+
+
+###
+get localhost/apitest/posts/details/7
