@@ -19,3 +19,9 @@ content-type: application/json
     "author": "reaper",
     "category_id": 3
 }
+
+###
+delete localhost/apitest/posts/delete
+
+###
+delete localhost/apitest/posts/delete/23
