@@ -83,8 +83,14 @@ class Post extends Model{
         $this->execute("INSERT into `{$this->table}`(`title`, `body`, `author`, `categorie_id`) values (?, ?, ?, ?)", $values);
         return ["message" => "Post Created"];
     }
+
     public function delete($id){
         $this->execute("DELETE from `{$this->table}` where `{$this->primaryKey}` = ?", [$id]);
         return ["message" => "Post deleted"];
+    }
+
+    public function update($values){
+        $this->execute("UPDATE `{$this->table}` set `title` = ?, `body` = ?, `author` = ?, `categorie_id` = ? where `{$this->primaryKey}` = ?", $values);
+        return ["message" => "Post Updated"];
     }
 }

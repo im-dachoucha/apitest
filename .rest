@@ -25,3 +25,15 @@ delete localhost/apitest/posts/delete
 
 ###
 delete localhost/apitest/posts/delete/23
+
+###
+put localhost/apitest/posts/update
+content-type: application/json
+
+{
+    "id": 22,
+    "title": "updated title",
+    "body": "updated body",
+    "author": "me",
+    "category_id": 2
+}

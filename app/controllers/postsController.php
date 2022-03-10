@@ -55,4 +55,14 @@ class Posts extends Controller
             echo json_encode($response);
         }
     }
+
+    public function update(){
+        if($_SERVER["REQUEST_METHOD"] === "PUT"){
+            $data = (array) json_decode(file_get_contents("php://input"));
+            extract($data);
+            $values = [$title, $body, $author, $category_id, $id];
+            $response = $this->model->update($values);
+            echo json_encode($response);
+        }
+    }
 }
