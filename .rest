@@ -4,4 +4,18 @@ get localhost/apitest/posts/
 get localhost/apitest/posts/2
 
 ###
-get localhost/apitest/posts/details/7
+get localhost/apitest/posts/details/8
+
+###
+get localhost/apitest/posts/details
+
+###
+post localhost/apitest/posts/add
+content-type: application/json
+
+{
+    "title": "test book",
+    "body": "body of a test book",
+    "author": "reaper",
+    "category_id": 3
+}

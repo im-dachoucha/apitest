@@ -22,7 +22,9 @@ class Post extends Model{
             join
                 categorie c
             on
-                p.categorie_id = c.id" . ($id ? " limit {$id}" : ""));
+                p.categorie_id = c.id
+            order by
+                p.created_at desc " . ($id ? "limit {$id} " : " "));
         $posts = array();
         $posts["data"] = array();
         foreach($results as $data){
@@ -76,5 +78,9 @@ class Post extends Model{
             $post["message"] = "must provide an id!!!";
         }
         return $post;
+    }
+    public function add($values){
+        $this->execute("INSERT into `{$this->table}`(`title`, `body`, `author`, `categorie_id`) values (?, ?, ?, ?)", $values);
+        return ["message" => "Post Created"];
     }
 }

@@ -23,4 +23,15 @@ class Posts extends Controller{
             echo json_encode($post);
         }
     }
+
+    public function add(){
+        if($_SERVER["REQUEST_METHOD"] === "POST"){
+            include APPROOT . "/libraries/postheaders.php";
+            $data = (array) json_decode(file_get_contents("php://input"));
+            extract($data);
+            $values = [$title, $body, $author, $category_id];
+            $results = $this->model->add($values);
+            echo json_encode($results);
+        }
+    }
 }
